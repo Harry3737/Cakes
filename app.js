@@ -278,7 +278,7 @@ app.post('/register' , function(req,res){
             return res.redirect('/register');
         }
         passport.authenticate('local')(req, res, function(){
-            res.redirect('/index');
+            res.redirect('/');
         });
     });
 });
@@ -290,7 +290,7 @@ app.get('/login' , function(req ,res){
 //middleware 
 app.post('/login' , passport.authenticate("local", 
 {
-    successRedirect :'/index',
+    successRedirect :'/',
     failureRedirect :'/login',
 }) ,function(req ,res , next){
     if(req.session.oldUrl)
