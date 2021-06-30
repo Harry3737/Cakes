@@ -50,7 +50,7 @@ app.use(session({
     secret: "Harry is the Best Boy",
     resave : false,
     saveUninitialized: false,
-    store:  new MongoStore ({ mongoUrl: 'mongodb://localhost/Session'}),
+    store:  new MongoStore ({ mongoUrl: 'mongodb+srv://haider:hsk123@bakerydb.i4czc.mongodb.net/Sesssion?retryWrites=true&w=majority'}),
     cookie:{maxAge: 15*60*1000}
 }));
 
