@@ -1,0 +1,144 @@
+<%-include('partials/headeradmin') -%>
+<%-include('partials/sidebar') -%>
+
+
+        <div class="page-body">
+
+            <!-- Container-fluid starts-->
+            <div class="container-fluid">
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="page-header-left">
+                                <h3>Add Products
+                                    <small>Bakery Admin panel</small>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <ol class="breadcrumb pull-right">
+                                <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item">Physical</li>
+                                <li class="breadcrumb-item active">Add Product</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid Ends-->
+
+            <!-- Container-fluid starts-->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Add Data</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row product-adding">
+                                    <div class="col-xl-5">
+                                        <div class="add-product">
+                                      
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-7">
+                                        <form class="needs-validation add-product-form" novalidate="" action="/admin/products/" enctype="multipart/form-data" method="POST">
+                                            <div class="form">
+                                                <div class="form-group mb-3 row">
+                                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"> Main Title :</label>
+                                                    <div class="col-xl-8 col-sm-7">
+                                                        <input class="form-control" name="title" id="validationCustom01" type="text" required="">
+                                                    </div>
+                                                    <div class="valid-feedback">Looks good!</div>
+                                                </div>
+                                                <div class="form-group mb-3 row">
+                                                    <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Main Description :</label>
+                                                    <div class="col-xl-8 col-sm-7">
+                                                        <input class="form-control" name="price" id="validationCustom02" type="text" required="">
+                                                    </div>
+                                                    <div class="valid-feedback">Looks good!</div>
+                                                </div>
+                                            
+                                                <div class="form-group row">
+                                                    <label for="exampleFormControlSelect1"  class="col-xl-3 col-sm-4 mb-0">Shop Image :</label>
+                                                    <div class="col-xl-8 col-sm-7">
+                                                        <div class="custom-file mb-">
+                                                            <input type="file" class="form-control"name="image" id="validatedCustomFile" required>
+                                            
+                                                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                                          </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group mb-3 row">
+                                                    <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">CEO 1 Name:</label>
+                                                    <div class="col-xl-8 col-sm-7">
+                                                        <input class="form-control" name="price" id="validationCustom02" type="text" required="">
+                                                    </div>
+                                                    <div class="valid-feedback">Looks good!</div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="exampleFormControlSelect1"  class="col-xl-3 col-sm-4 mb-0">CEO 1 Image :</label>
+                                                    <div class="col-xl-8 col-sm-7">
+                                                        <div class="custom-file mb-">
+                                                            <input type="file" class="form-control"name="image" id="validatedCustomFile" required>
+                                            
+                                                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                                          </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-3 row">
+                                                    <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">CEO 1 Description :</label>
+                                                    <div class="col-xl-8 col-sm-7">
+                                                        <input class="form-control" name="price" id="validationCustom02" type="text" required="">
+                                                    </div>
+                                                    <div class="valid-feedback">Looks good!</div>
+                                                </div>
+
+                                                <div class="form-group mb-3 row">
+                                                    <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">CEO 2 Name:</label>
+                                                    <div class="col-xl-8 col-sm-7">
+                                                        <input class="form-control" name="price" id="validationCustom02" type="text" required="">
+                                                    </div>
+                                                    <div class="valid-feedback">Looks good!</div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="exampleFormControlSelect1"  class="col-xl-3 col-sm-4 mb-0">CEO 2 Image :</label>
+                                                    <div class="col-xl-8 col-sm-7">
+                                                        <div class="custom-file mb-">
+                                                            <input type="file" class="form-control"name="image" id="validatedCustomFile" required>
+                                            
+                                                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                                          </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-3 row">
+                                                    <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">CEO 2 Description :</label>
+                                                    <div class="col-xl-8 col-sm-7">
+                                                        <input class="form-control" name="price" id="validationCustom02" type="text" required="">
+                                                    </div>
+                                                    <div class="valid-feedback">Looks good!</div>
+                                                </div>
+                                               
+                                                
+                                            <div class="offset-xl-3 offset-sm-4">
+                                                <button type="submit" class="btn btn-primary">Add</button>
+                                                <button type="button" class="btn btn-light">Discard</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid Ends-->
+
+        </div>
+
+        
+<%-include('partials/footeradmin') -%>
+
+ 

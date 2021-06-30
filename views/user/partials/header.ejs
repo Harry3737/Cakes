@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from themes.pixelstrap.com/multikart/front-end/vegetables.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 25 Mar 2021 07:45:17 GMT -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="multikart">
+    <meta name="keywords" content="multikart">
+    <meta name="author" content="multikart">
+    <link rel="icon" href="../assets/images/favicon/1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/images/favicon/1.png" type="image/x-icon">
+    <title>Pastries and Cakes</title>
+
+    <!--Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Yellowtail&amp;display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
+    <!--Slick slider css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/slick.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/slick-theme.css">
+
+    <!-- Animate icon -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/animate.css">
+
+    <!-- Themify icon -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/themify-icons.css">
+
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap.css">
+
+    <!-- Theme css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+</head>
+<!-- Script Files -->
+<script>
+    function printPageArea(tagid){
+        var hashid = "#"+ tagid;
+        var tagname =  $(hashid).prop("tagName").toLowerCase() ;
+        var attributes = ""; 
+        var attrs = document.getElementById(tagid).attributes;
+          $.each(attrs,function(i,elem){
+            attributes +=  " "+  elem.name+" ='"+elem.value+"' " ;
+          })
+        var divToPrint= $(hashid).html() ;
+        var head = "<html><head>"+ $("head").html() + "</head>" ;
+        var allcontent = head + "<body  onload='window.print()' >"+ "<" + tagname + attributes + ">" +  divToPrint + "</" + tagname + ">" +  "</body></html>"  ;
+        var newWin= window.open('', '', 'left=0,top=0,width=1000,height=900,toolbar=0,scrollbars=0,status=0');
+        newWin.document.open();
+        newWin.document.write(allcontent);
+        newWin.document.close();
+    }
+</script>
+
+<body class="theme-color-1">
+        <!-- header start -->
+        <header class="header-2">
+            <div class="mobile-fix-option"></div>
+            <div class="top-header" style="background: #a15d10;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="header-contact">
+                                <ul>
+                                    <li style="color: aliceblue;">Welcome to Pasteries and Cakes Bakery</li>
+                                    <li style="color: aliceblue;"><i class="fa fa-phone" aria-hidden="true"></i>Call Us: +92 (3047204200)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 text-end">
+                            <ul class="header-dropdown">
+                                    <ul class="onhover-show-div">
+                                        <% if(!CurrentUser) {%>
+                                        <li><a href="/login">Login</a></li>
+                                        <li><a href="/register">register</a></li>
+                                     <% } else { %>
+                                        <li><i class="fas fa-user-circle"></i><a href="#"><%= CurrentUser.username %></a></li>
+                                        <li><a href="/logout">Logout</a></li>
+                                        <% } %>
+                                    </ul>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="main-menu border-section border-top-0" style="height: 200px;">
+                            <div class="menu-left">
+                                <div class="navbar"></div>
+                            </div>
+                            <div class="brand-logo layout2-logo">
+                                <a href="#"><img src="../assets/images/icon/logo.png" class="img-fluid blur-up lazyload"
+                                        alt=""></a>
+                            </div>
+                            <div class="menu-right pull-right">
+                                <div class="icon-nav">
+                                    <ul>
+                                        <li class="onhover-div mobile-search">
+                                            <div><img src="../assets/images/icon/search.png" onclick="openSearch()"
+                                                    class="img-fluid blur-up lazyload" alt=""> <i class="ti-search"
+                                                    onclick="openSearch()"></i></div>
+                                            <div id="search-overlay" class="search-overlay">
+                                                <div><span class="closebtn" onclick="closeSearch()"
+                                                        title="Close Overlay">×</span>
+                                                    <div class="overlay-content">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-xl-12">
+                                                                    <form>
+                                                                        <div class="form-group">
+                                                                            <input type="text" class="form-control"
+                                                                                id="exampleInputPassword1"
+                                                                                placeholder="Search a Product">
+                                                                        </div>
+                                                                        <button type="submit" class="btn btn-primary"><i
+                                                                                class="fa fa-search"></i></button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                            <li class="onhover-div mobile-cart">
+                                <div>
+                                    <a href="/cart"><img src="../assets/images/icon/cart-1.png"
+                                                class="img-fluid blur-up lazyload" alt=""> 
+                                                <i class="ti-shopping-cart"></i>
+                                                <% if(session.cart){ %>
+                                                    <span class="badge " style="background: #805e3f;">
+                                                        <%= session.cart.totalquantity %>
+                                                    </span>
+                                                   <% } %>
+                                 
+                                </div>
+                                    </a>
+                                            
+                            </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="main-nav-center">
+                            <nav id="main-nav">
+                                <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
+                                <ul id="main-menu" class="sm pixelstrap sm-horizontal">
+                                    <li>
+                                        <div class="mobile-back text-end">Back<i class="fa fa-angle-right ps-2"
+                                                aria-hidden="true"></i></div>
+                                    </li>
+                                    <li><a href="/index">Home</a></li>
+                                    <li><a href="">Product</a>
+                                        <ul>
+                                            <li><a href='/products'>All</a></li>
+                                            <li><a href='/products/Cake'>Cake</a></li>
+                                            <li><a href='/products/Pasteries'>Pasteries</a></li>
+                                            <li><a href='/products/Biscuit'>Biscuit</a></li>
+                                            <li><a href='/products/Pizza'>Pizza</a></li>
+                                            <li><a href='/products/Burger'>Burger</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/About">About Us</a></li>
+                                    <li><a href="/contact">Contact Us</a></li>
+                                    <li><a href="/faq">FAQ</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- header end -->
