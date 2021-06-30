@@ -24,7 +24,8 @@ require('dotenv/config');
 
 // Database Connectiom
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/bakerydb", { useNewUrlParser: true , useUnifiedTopology: true , useFindAndModify:false });
+// mongoose.connect("mongodb://localhost/bakerydb", { useNewUrlParser: true , useUnifiedTopology: true , useFindAndModify:false });
+mongoose.connect("mongodb+srv://haider:hsk123@bakerydb.i4czc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", { useNewUrlParser: true , useUnifiedTopology: true , useFindAndModify:false });
 app.use(express.static('public'));
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(bodyparser.json());
