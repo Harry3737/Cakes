@@ -24,8 +24,8 @@ require('dotenv/config');
 
 // Database Connectiom
 var mongoose = require("mongoose");
-// mongoose.connect("mongodb://localhost/bakerydb", { useNewUrlParser: true , useUnifiedTopology: true , useFindAndModify:false });
-mongoose.connect('mongo "mongodb+srv://bakerydb.i4czc.mongodb.net/myFirstDatabase" --username haider', { useNewUrlParser: true , useUnifiedTopology: true , useFindAndModify:false });
+mongoose.connect("mongodb://localhost/bakerydb", { useNewUrlParser: true , useUnifiedTopology: true , useFindAndModify:false });
+// mongoose.connect('mongo "mongodb+srv://bakerydb.i4czc.mongodb.net/myFirstDatabase" --username haider', { useNewUrlParser: true , useUnifiedTopology: true , useFindAndModify:false });
 app.use(express.static('public'));
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(bodyparser.json());
@@ -445,17 +445,60 @@ app.get("/ordersuccess", function(req,res)
             var cart= new Cart(req.session.cart);
             // console.log(req.session.cart);
             res.render("user/order-success",{products: cart.generateArray() ,totalprice: cart.totalprice , user:req.user});
-           
+            
+            // saveorder.cart.Products.forEach(function(order){
+            //         console.log(order);
+            // });
             //email setup
-             var mail = `
-             <p>Order Has Been Placed </p>
-             <h3>Order Details </h3>
-             <h4>Item Name  ${saveorder.cart.Products[0]['item']['title']} </h4> </br>
-             <h4> Price     ${saveorder.cart.Products[0]['item']['price']} </h4>
-             <h4> Quantity  ${saveorder.cart.Products[0].qty} </h4> 
-             
-             `
+            var source =  "<!DOCTYPE html>" +
+            "<html>" +
+            "<head>" +
+            "<style>" +
+            "#customers {" +
+              "font-family: Arial, Helvetica, sans-serif;" +
+              "border-collapse: collapse;" +
+              "width: 100%;" +
+            "}" +
+            "#customers td, #customers th {" +
+              "border: 1px solid #ddd;" +
+              "padding: 8px;" +
+            "}" +
+            "#customers tr:nth-child(even){background-color: #f2f2f2;}" +                    
+            "#customers tr:hover {background-color: #ddd;}" +                    
+            "#customers th {" +
+              "padding-top: 12px;" +
+              "padding-bottom: 12px;" +
+              "text-align: left;" +
+              "background-color: #04AA6D;" +
+              "color: white;" +
+            "}" +
+            "</style>" +
+            "</head>" +
+            "<body>" +
+            "<p>Hi, " + req.user.username + "</p>" + 
+            "<p>Just to let you know — we've received your order # 60dc8ff92367262b40687cfb , and it is now being processed:</p>" +
+            "<p>Pay with cash upon delivery. The Products will be delivered withing 2-4 business days after confirmation call!</p>" +
+            "<table id='customers'>" +
+              "<tr>" +
+                "<th>Product Name</th>" +
+                "<th>Price</th>" +
+                "<th>Quantity</th>" +
+              "</tr>";
+
+             saveorder.cart.Products.forEach(function(Item){
+                source += "<tr>" +
+                            "<td>" + Item['title'] + "</td>" +
+                            "<td>" + Item['price'] + "</td>" +
+                            "<td>" + Item['quantity'] + "</td>" +
+                          "</tr>" 
+              })
+
+                    source += "</table>" +
+                    "<h2>Total Price: " + saveorder.totalprice + "</h2>"            
+                    "</body>" +
+                    "</html>";
             var transporter = nodemailer.createTransport({
+                host: 'smtp.gmail.com',
                 service: 'gmail',
                 auth: {
                   user: 'haidermannan.cs@gmail.com',
@@ -467,7 +510,7 @@ app.get("/ordersuccess", function(req,res)
                 to: 'sayyedahmed457@gmail.com',
                 subject: 'Sending Email using Node.js',
                 text: 'That was easy!',
-                html: mail
+                html: source
               };
               transporter.sendMail(mailOptions, function(error, info){
                 if (error) {
@@ -503,7 +546,7 @@ res.render("user/faq");
 });
 
 
-app.listen(3000, function()
+app.listen(process.env.Port || 3000, function()
 {
 console.log(" Bakery Server is in Runing State ");
 });
