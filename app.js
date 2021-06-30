@@ -546,7 +546,7 @@ res.render("user/faq");
 });
 
 
-app.listen(process.env.Port || 3000, function()
+app.listen(process.env.PORT || 3000, function()
 {
 console.log(" Bakery Server is in Runing State ");
 });
