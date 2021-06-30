@@ -291,22 +291,14 @@ app.get('/login' , function(req ,res){
 app.post('/login' , passport.authenticate("local", 
 {
     successRedirect :'/',
-    failureRedirect :'/login',
-}) ,function(req ,res , next){
-    if(req.session.oldUrl)
-    {
-        res.redirect(req.session.oldUrl);
-        req.session.oldUrl = null;
-    }
-    else
-    {
-        res.redirect('user/products-page');
-    }
+    failureRedirect :'/login'
+}) ,function(req ,res){
+    
 });
 //logout routes
 app.get("/logout" , function(req ,res){
     req.logOut();
-    res.redirect('/index');
+    res.redirect('/');
 });
 //functions
 function isLoggedIn(req ,res , next){
@@ -314,7 +306,6 @@ function isLoggedIn(req ,res , next){
     {
         return next();
     }
-    req.session.oldUrl = req.url;
     res.redirect("/login");
 }
 //===cart route====
