@@ -259,7 +259,7 @@ app.get('/admin/userlist', function(req,res)
     res.render('admin/user-list');
 });
 //user routes
-app.get("/index", function(req,res)
+app.get("/", function(req,res)
 {
     // console.log(req.session);
     res.render("user/vegetables");
