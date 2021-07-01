@@ -135,17 +135,19 @@
                                         
                             <li class="onhover-div mobile-cart">
                                 <div>
+                                    <% if(session.cart){ %>
                                     <a href="/cart"><img src="../assets/images/icon/cart-1.png"
                                                 class="img-fluid blur-up lazyload" alt=""> 
                                                 <i class="ti-shopping-cart"></i>
-                                                <% if(session.cart){ %>
+                                                <% if(session.cart.totalquantity >0 ){ %>
                                                     <span class="badge " style="background: #805e3f;">
                                                         <%= session.cart.totalquantity %>
                                                     </span>
                                                    <% } %>
-                                 
+                                                </a>
+                                                <% } %>
                                 </div>
-                                    </a>
+                                    
                                             
                             </li>
                                     </ul>

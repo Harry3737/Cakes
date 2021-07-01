@@ -434,6 +434,7 @@ app.get("/ordersuccess", function(req,res)
         else
         {
             var cart= new Cart(req.session.cart);
+            req.session.cart = {} ;
             // console.log(req.session.cart);
             res.render("user/order-success",{products: cart.generateArray() ,totalprice: cart.totalprice , user:req.user});
             
@@ -460,13 +461,13 @@ app.get("/ordersuccess", function(req,res)
               "padding-top: 12px;" +
               "padding-bottom: 12px;" +
               "text-align: left;" +
-              "background-color: #04AA6D;" +
+              "background-color: #8053ef;" +
               "color: white;" +
             "}" +
             "</style>" +
             "</head>" +
             "<body>" +
-            "<p>Hi, " + req.user.username + "</p>" + 
+            "<p   > Hi " + req.user.username + " Your Order Has Been Received </p>" + 
             "<p>Just to let you know — we've received your order # 60dc8ff92367262b40687cfb , and it is now being processed:</p>" +
             "<p>Pay with cash upon delivery. The Products will be delivered withing 2-4 business days after confirmation call!</p>" +
             "<table id='customers'>" +
@@ -478,14 +479,14 @@ app.get("/ordersuccess", function(req,res)
 
              saveorder.cart.Products.forEach(function(Item){
                 source += "<tr>" +
-                            "<td>" + Item['title'] + "</td>" +
+                            "<td>" + Item['item']['title'] + "</td>" +
                             "<td>" + Item['price'] + "</td>" +
-                            "<td>" + Item['quantity'] + "</td>" +
+                            "<td>" + Item['qty'] + "</td>" +
                           "</tr>" 
               })
 
                     source += "</table>" +
-                    "<h2>Total Price: " + saveorder.totalprice + "</h2>"            
+                    "<h2>Total Price: " + saveorder.cart.totalprice + "</h2>"            
                     "</body>" +
                     "</html>";
             var transporter = nodemailer.createTransport({
